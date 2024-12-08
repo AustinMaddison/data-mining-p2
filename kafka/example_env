@@ -2,5 +2,6 @@
 #                                Financial Data                                #
 # ---------------------------------------------------------------------------- #
 
+# We are using alpha vantage for our data.
 API_KEY = 
-SYMBOL =
+ 
