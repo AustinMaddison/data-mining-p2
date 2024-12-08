@@ -1,0 +1,252 @@
+[
+    {
+        "symbol": "AAPL",
+        "company": "Apple Inc.",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "MSFT",
+        "company": "Microsoft Corporation",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "GOOGL",
+        "company": "Alphabet Inc.",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "AMZN",
+        "company": "Amazon.com Inc.",
+        "sector": "Consumer Discretionary"
+    },
+    {
+        "symbol": "FB",
+        "company": "Meta Platforms Inc.",
+        "sector": "Communication Services"
+    },
+    {
+        "symbol": "TSLA",
+        "company": "Tesla Inc.",
+        "sector": "Consumer Discretionary"
+    },
+    {
+        "symbol": "BRK.B",
+        "company": "Berkshire Hathaway Inc.",
+        "sector": "Financials"
+    },
+    {
+        "symbol": "JNJ",
+        "company": "Johnson & Johnson",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "V",
+        "company": "Visa Inc.",
+        "sector": "Financials"
+    },
+    {
+        "symbol": "WMT",
+        "company": "Walmart Inc.",
+        "sector": "Consumer Staples"
+    },
+    {
+        "symbol": "JPM",
+        "company": "JPMorgan Chase & Co.",
+        "sector": "Financials"
+    },
+    {
+        "symbol": "PG",
+        "company": "Procter & Gamble Co.",
+        "sector": "Consumer Staples"
+    },
+    {
+        "symbol": "NVDA",
+        "company": "NVIDIA Corporation",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "DIS",
+        "company": "The Walt Disney Company",
+        "sector": "Communication Services"
+    },
+    {
+        "symbol": "MA",
+        "company": "Mastercard Incorporated",
+        "sector": "Financials"
+    },
+    {
+        "symbol": "HD",
+        "company": "The Home Depot, Inc.",
+        "sector": "Consumer Discretionary"
+    },
+    {
+        "symbol": "PYPL",
+        "company": "PayPal Holdings, Inc.",
+        "sector": "Financials"
+    },
+    {
+        "symbol": "BAC",
+        "company": "Bank of America Corporation",
+        "sector": "Financials"
+    },
+    {
+        "symbol": "VZ",
+        "company": "Verizon Communications Inc.",
+        "sector": "Communication Services"
+    },
+    {
+        "symbol": "NFLX",
+        "company": "Netflix, Inc.",
+        "sector": "Communication Services"
+    },
+    {
+        "symbol": "INTC",
+        "company": "Intel Corporation",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "KO",
+        "company": "The Coca-Cola Company",
+        "sector": "Consumer Staples"
+    },
+    {
+        "symbol": "PFE",
+        "company": "Pfizer Inc.",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "PEP",
+        "company": "PepsiCo, Inc.",
+        "sector": "Consumer Staples"
+    },
+    {
+        "symbol": "CSCO",
+        "company": "Cisco Systems, Inc.",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "MRK",
+        "company": "Merck & Co., Inc.",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "XOM",
+        "company": "Exxon Mobil Corporation",
+        "sector": "Energy"
+    },
+    {
+        "symbol": "T",
+        "company": "AT&T Inc.",
+        "sector": "Communication Services"
+    },
+    {
+        "symbol": "CVX",
+        "company": "Chevron Corporation",
+        "sector": "Energy"
+    },
+    {
+        "symbol": "ABT",
+        "company": "Abbott Laboratories",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "CMCSA",
+        "company": "Comcast Corporation",
+        "sector": "Communication Services"
+    },
+    {
+        "symbol": "ADBE",
+        "company": "Adobe Inc.",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "NKE",
+        "company": "NIKE, Inc.",
+        "sector": "Consumer Discretionary"
+    },
+    {
+        "symbol": "ORCL",
+        "company": "Oracle Corporation",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "LLY",
+        "company": "Eli Lilly and Company",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "MCD",
+        "company": "McDonald's Corporation",
+        "sector": "Consumer Discretionary"
+    },
+    {
+        "symbol": "DHR",
+        "company": "Danaher Corporation",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "COST",
+        "company": "Costco Wholesale Corporation",
+        "sector": "Consumer Staples"
+    },
+    {
+        "symbol": "NEE",
+        "company": "NextEra Energy, Inc.",
+        "sector": "Utilities"
+    },
+    {
+        "symbol": "PM",
+        "company": "Philip Morris International Inc.",
+        "sector": "Consumer Staples"
+    },
+    {
+        "symbol": "MDT",
+        "company": "Medtronic plc",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "UNH",
+        "company": "UnitedHealth Group Incorporated",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "HON",
+        "company": "Honeywell International Inc.",
+        "sector": "Industrials"
+    },
+    {
+        "symbol": "TXN",
+        "company": "Texas Instruments Incorporated",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "UNP",
+        "company": "Union Pacific Corporation",
+        "sector": "Industrials"
+    },
+    {
+        "symbol": "LIN",
+        "company": "Linde plc",
+        "sector": "Materials"
+    },
+    {
+        "symbol": "AMGN",
+        "company": "Amgen Inc.",
+        "sector": "Health Care"
+    },
+    {
+        "symbol": "AVGO",
+        "company": "Broadcom Inc.",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "QCOM",
+        "company": "QUALCOMM Incorporated",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "BMY",
+        "company": "Bristol-Myers Squibb Company",
+        "sector": "Health Care"
+    }
+]
