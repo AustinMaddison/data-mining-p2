@@ -1,4 +1,4 @@
-version: '3.8'
+#version: '3.8'
 
 services:
   elasticsearch:
@@ -41,6 +41,17 @@ services:
     ports:
       - "2181:2181"
 
+  kafka_manager:
+    image: hlebalbau/kafka-manager:stable
+    container_name: kafka-manager
+    restart: always
+    ports:
+      - "9000:9000"
+    environment:
+      ZK_HOSTS: zookeeper:2181
+      APPLICATION_SECRET: random-secret
+    command: -Dpidfile.path=/dev/null
+
   kafka:
     image: confluentinc/cp-kafka:7.7.1
     container_name: kafka
@@ -55,6 +66,35 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      
+  logstash:
+    container_name: logstash
+    image: logstash:8.16.1
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./logstash/:/logstash
+    command:
+      - logstash -f /logstash/logstash.conf
+    ports:
+      - "5044:5044"
+    depends_on:
+      - elasticsearch
+    stdin_open: true
+    tty: true
+    restart: always
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "50"
+    healthcheck:
+      test: [ "CMD", "curl", "--silent", "--fail", "http://logstash-cntr:9600" ]
+      interval: 30s
+      timeout: 15s
+      retries: 3
 
 volumes:
   es_data:
