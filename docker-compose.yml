@@ -66,7 +66,7 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-      
+
   logstash:
     container_name: logstash
     image: logstash:8.16.1
@@ -77,7 +77,7 @@ services:
     volumes:
       - ./logstash/:/logstash
     command:
-      - logstash -f /logstash/logstash.conf
+      - logstash -f ~/data-mining-p2/logstash/logstash.conf
     ports:
       - "5044:5044"
     depends_on:
