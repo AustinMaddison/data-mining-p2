@@ -6,7 +6,8 @@ import requests
 
 import os
 from dotenv import load_dotenv
-from kafka.admin import KafkaAdminClient, NewTopic
+from kafka import KafkaAdminClient
+# from kafka.admin import KafkaAdminClient
 
 # Kafka admin setup
 admin = KafkaAdminClient(
@@ -24,22 +25,21 @@ topics_list = admin.list_topics()
 
 
 load_dotenv()
+financial_data = os.getenv('STOCK_LOG')
 
 producer = KafkaProducer(bootstrap_servers='localhost:29092', value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
 def fetch_financial_data(api_key, symbol):
-
     url = f'https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={symbol}&interval=5min&apikey={api_key}'
     response = requests.get(url)
     data = response.json()
-    #print(data)
     return data
 
 def stream_data():
     api_key = os.getenv('API_KEY')
     data = fetch_financial_data(api_key, 'aapl')
-    #print(data)
     producer.send('financial-data', data)
+    print(data)
     producer.flush()
 
 if __name__ == "__main__":

@@ -3,5 +3,5 @@
 # ---------------------------------------------------------------------------- #
 
 # We are using alpha vantage for our data.
-API_KEY = 
- 
+API_KEY =
+STOCK_LOG=financial-data
