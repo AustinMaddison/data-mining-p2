@@ -5,8 +5,8 @@ import json
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-financial_data = os.getenv('STOCK_LOG')
+# load_dotenv()
+# financial_data = os.getenv('STOCK_LOG')
 consumer = KafkaConsumer('financial-data', bootstrap_servers='localhost:29092'
                          , value_deserializer=lambda m: json.loads(m.decode('utf-8'))
                          , auto_offset_reset='earliest', group_id=None)

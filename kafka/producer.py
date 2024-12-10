@@ -59,14 +59,8 @@ from alpaca_trade_api.stream import Stream
 
 
 async def trade_callback(t):
-    trade_data = t if isinstance(t, dict) else t.__dict__
-    print(trade_data)
-    producer.send('financial-data', trade_data)
+    producer.send('financial-data', t._raw)
     producer.flush()
-
-
-# async def quote_callback(q):
-#     return q
 
 
 
@@ -81,4 +75,8 @@ stream.subscribe_trades(trade_callback, 'AAPL')
 #stream.subscribe_quotes(quote_callback, 'IBM')
 
 if __name__ == "__main__":
-    stream.run()
+    try:
+        stream.run()  # If this is asynchronous, use `await stream.run()` or wrap in an event loop
+        sleep(3)
+    except KeyboardInterrupt:
+        print("Stream interrupted.")
