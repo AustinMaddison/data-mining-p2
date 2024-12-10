@@ -17,5 +17,6 @@ end_offset = consumer.end_offsets([partition])
 consumer.seek(partition, list(end_offset.values())[0]-1)
 for message in consumer:
     data = message.value
-    print(data['Meta Data'])
-    es.index(index='financial-data', body=data['Meta Data'])
+    print(data)
+    es.index(index='financial-data', body=data)
+
