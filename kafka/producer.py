@@ -1,20 +1,13 @@
-import pprint
 from time import sleep
 
-import pandas as pd
-from alpaca.data import Trade
-from alpaca_trade_api.entity import ISO8601YMD, _NanoTimestamped
 from kafka import KafkaProducer
 import json
 import requests
 
 import os
 from dotenv import load_dotenv
-from kafka import KafkaAdminClient
-from sqlalchemy.util import symbol
-import time
-
-# from kafka.admin import KafkaAdminClient
+#from kafka import KafkaAdminClient
+from kafka.admin import KafkaAdminClient
 
 # Kafka admin setup
 admin = KafkaAdminClient(
@@ -34,6 +27,15 @@ topics_list = admin.list_topics()
 load_dotenv()
 financial_data = os.getenv('STOCK_LOG')
 
+from alpaca_trade_api.common import URL
+from alpaca_trade_api.stream import Stream
+
+
+ALPACA_API_KEY = "PK4P6XJV9I8CA9ZAKJ72"
+ALPACA_SECRET_KEY = "GKNn9h0FCmGCDSJPZCJAUqLekbTxThAnUuLMgDtZ"
+
+
+
 producer = KafkaProducer(bootstrap_servers='localhost:29092', value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
 def fetch_financial_data(api_key, symbol):
@@ -42,41 +44,35 @@ def fetch_financial_data(api_key, symbol):
     data = response.json()
     return data
 
-def stream_data():
-    f = open('symbols.json')
-    symbols = json.load(f)
-    for symbol in symbols:
-        api_key = os.getenv('API_KEY')
-        apiKey = '6E87VKYTFU8HOT6J'
-        apiKey2= 'X4FDF7HQHOIV0YF9'
-        data = fetch_financial_data(apiKey2, symbol["symbol"])
-        producer.send('financial-data', data)
-        producer.flush()
-
-
-from alpaca_trade_api.common import URL
-from alpaca_trade_api.stream import Stream
 
 
 async def trade_callback(t):
     producer.send('financial-data', t._raw)
-    producer.flush()
+    print('trade', t._raw)
 
+
+async def quote_callback(q):
+    producer.send('financial-data', q._raw)
+    print('quote', q._raw)
 
 
 # Initiate Class Instance
-stream = Stream("PKHL0MBLB5UWPWU4GJTP",
-                "Zms9rxshMqgtZeX6rlUHuusj7PGrtGlPhNR20lbP",
+stream = Stream(ALPACA_API_KEY,
+                ALPACA_SECRET_KEY,
                 base_url=URL('wss://stream.data.alpaca.markets/v2/'),
                 data_feed='iex')  # <- replace to 'sip' if you have PRO subscription
 
 # subscribing to event
 stream.subscribe_trades(trade_callback, 'AAPL')
-#stream.subscribe_quotes(quote_callback, 'IBM')
+stream.subscribe_quotes(quote_callback, 'IBM')
+
+def stream_data():
+    api_key = os.getenv('API_KEY')
+    data = fetch_financial_data(api_key, 'aapl')
+    producer.send('financial-data', data)
+    print(data)
+    stream.run()
+    producer.flush()
 
 if __name__ == "__main__":
-    try:
-        stream.run()  # If this is asynchronous, use `await stream.run()` or wrap in an event loop
-        sleep(3)
-    except KeyboardInterrupt:
-        print("Stream interrupted.")
+    stream_data()
