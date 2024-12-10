@@ -1,0 +1,170 @@
+{
+    "countries": [
+      {
+        "name": "Euro",
+        "dataExchangeCode": "EUR",
+        "currencyCode": "EUR"
+      },
+      {
+        "name": "US Dollar",
+        "dataExchangeCode": "USD",
+        "currencyCode": "USD"
+      },
+      {
+        "name": "Japanese Yen",
+        "dataExchangeCode": "JPY",
+        "currencyCode": "JPY"
+      },
+      {
+        "name": "Bulgarian Lev",
+        "dataExchangeCode": "BGN",
+        "currencyCode": "BGN"
+      },
+      {
+        "name": "Czech Republic Koruna",
+        "dataExchangeCode": "CZK",
+        "currencyCode": "CZK"
+      },
+      {
+        "name": "Danish Krone",
+        "dataExchangeCode": "DKK",
+        "currencyCode": "DKK"
+      },
+      {
+        "name": "British Pound Sterling",
+        "dataExchangeCode": "GBP",
+        "currencyCode": "GBP"
+      },
+      {
+        "name": "Hungarian Forint",
+        "dataExchangeCode": "HUF",
+        "currencyCode": "HUF"
+      },
+      {
+        "name": "Polish Zloty",
+        "dataExchangeCode": "PLN",
+        "currencyCode": "PLN"
+      },
+      {
+        "name": "Romanian Leu",
+        "dataExchangeCode": "RON",
+        "currencyCode": "RON"
+      },
+      {
+        "name": "Swedish Krona",
+        "dataExchangeCode": "SEK",
+        "currencyCode": "SEK"
+      },
+      {
+        "name": "Swiss Franc",
+        "dataExchangeCode": "CHF",
+        "currencyCode": "CHF"
+      },
+      {
+        "name": "Icelandic Króna",
+        "dataExchangeCode": "ISK",
+        "currencyCode": "ISK"
+      },
+      {
+        "name": "Norwegian Krone",
+        "dataExchangeCode": "NOK",
+        "currencyCode": "NOK"
+      },
+      {
+        "name": "Croatian Kuna",
+        "dataExchangeCode": "HRK",
+        "currencyCode": "HRK"
+      },
+      {
+        "name": "Russian Ruble",
+        "dataExchangeCode": "RUB",
+        "currencyCode": "RUB"
+      },
+      {
+        "name": "Turkish Lira",
+        "dataExchangeCode": "TRY",
+        "currencyCode": "TRY"
+      },
+      {
+        "name": "Australian Dollar",
+        "dataExchangeCode": "AUD",
+        "currencyCode": "AUD"
+      },
+      {
+        "name": "Brazilian Real",
+        "dataExchangeCode": "BRL",
+        "currencyCode": "BRL"
+      },
+      {
+        "name": "Canadian Dollar",
+        "dataExchangeCode": "CAD",
+        "currencyCode": "CAD"
+      },
+      {
+        "name": "Chinese Yuan",
+        "dataExchangeCode": "CNY",
+        "currencyCode": "CNY"
+      },
+      {
+        "name": "Hong Kong Dollar",
+        "dataExchangeCode": "HKD",
+        "currencyCode": "HKD"
+      },
+      {
+        "name": "Indonesian Rupiah",
+        "dataExchangeCode": "IDR",
+        "currencyCode": "IDR"
+      },
+      {
+        "name": "Israeli New Sheqel",
+        "dataExchangeCode": "ILS",
+        "currencyCode": "ILS"
+      },
+      {
+        "name": "Indian Rupee",
+        "dataExchangeCode": "INR",
+        "currencyCode": "INR"
+      },
+      {
+        "name": "South Korean Won",
+        "dataExchangeCode": "KRW",
+        "currencyCode": "KRW"
+      },
+      {
+        "name": "Mexican Peso",
+        "dataExchangeCode": "MXN",
+        "currencyCode": "MXN"
+      },
+      {
+        "name": "Malaysian Ringgit",
+        "dataExchangeCode": "MYR",
+        "currencyCode": "MYR"
+      },
+      {
+        "name": "New Zealand Dollar",
+        "dataExchangeCode": "NZD",
+        "currencyCode": "NZD"
+      },
+      {
+        "name": "Philippine Peso",
+        "dataExchangeCode": "PHP",
+        "currencyCode": "PHP"
+      },
+      {
+        "name": "Singapore Dollar",
+        "dataExchangeCode": "SGD",
+        "currencyCode": "SGD"
+      },
+      {
+        "name": "Thai Baht",
+        "dataExchangeCode": "THB",
+        "currencyCode": "THB"
+      },
+      {
+        "name": "South African Rand",
+        "dataExchangeCode": "ZAR",
+        "currencyCode": "ZAR"
+      }
+    ]
+  }
+  
