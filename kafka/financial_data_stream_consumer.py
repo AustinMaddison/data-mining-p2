@@ -3,8 +3,8 @@ from elasticsearch import Elasticsearch
 import json
 from dotenv import load_dotenv
 
-TOPIC_IN = "financial_data_polled"
-TOPIC_OUT = "financial-data" # really this is an index for es, just incase we wanna chaing another process
+TOPIC_IN = "financial_data_streamed"
+TOPIC_OUT = "financial-data"  # really this is an index for es, just incase we wanna chaing another process
 
 load_dotenv()
 
@@ -12,6 +12,7 @@ from elasticsearch import Elasticsearch
 from elasticsearch.exceptions import ConnectionError
 
 es = Elasticsearch(["http://localhost:9200"])
+
 
 def check_connection():
     try:
@@ -22,30 +23,30 @@ def check_connection():
     except ConnectionError as e:
         print(f"Connection error: {e}")
 
+
 def index_data(index_name, doc_id, doc):
+    #print("!!index from stream!!")
     try:
+        #print("stream into!!")
+        print(doc)
         response = es.index(index=index_name, id=doc_id, body=doc)
         print(f"Document indexed successfully: {response}")
     except Exception as e:
         print(f"Error indexing document: {e}")
 
+
 if __name__ == "__main__":
     check_connection()
 
     consumer = KafkaConsumer(TOPIC_IN, bootstrap_servers='localhost:29092'
-                            , value_deserializer=lambda m: json.loads(m.decode('utf-8'))
-                            , auto_offset_reset='earliest', group_id=None)
-                         
+                             , value_deserializer=lambda m: json.loads(m.decode('utf-8'))
+                             , auto_offset_reset='earliest', group_id=None)
+
     for message in consumer:
         data = message.value
 
         index_name = TOPIC_OUT
         doc_id = message.offset
         document = data
-        
+
         index_data(index_name, doc_id, document)
-
-
-
-
-
