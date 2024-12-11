@@ -1,0 +1,37 @@
+[
+    {
+        "symbol": "AAPL",
+        "company": "Apple Inc.",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "MSFT",
+        "company": "Microsoft Corporation",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "GOOGL",
+        "company": "Alphabet Inc.",
+        "sector": "Technology"
+    },
+    {
+        "symbol": "AMZN",
+        "company": "Amazon.com Inc.",
+        "sector": "Consumer Discretionary"
+    },
+    {
+        "symbol": "FB",
+        "company": "Meta Platforms Inc.",
+        "sector": "Communication Services"
+    },
+    {
+        "symbol": "TSLA",
+        "company": "Tesla Inc.",
+        "sector": "Consumer Discretionary"
+    },
+    {
+        "symbol": "BRK.B",
+        "company": "Berkshire Hathaway Inc.",
+        "sector": "Financials"
+    }
+]

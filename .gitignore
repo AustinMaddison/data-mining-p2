@@ -1,2 +1,3 @@
 ﻿kafka/.env
 api_key.txt
+kafka/__pycache__
