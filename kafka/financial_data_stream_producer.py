@@ -8,6 +8,7 @@ from alpaca_trade_api.common import URL
 from alpaca_trade_api.stream import Stream
 
 INPUT_FILE = os.path.join(os.path.dirname(__file__), 'companies.json')
+TOPIC_OUT = "financial_data_streamed"
 
 if len(sys.argv) > 1:
     INPUT_FILE = sys.argv[1]
@@ -19,7 +20,12 @@ admin = KafkaAdminClient(
 
 producer = KafkaProducer(bootstrap_servers='localhost:29092', value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
+code_to_company = {}
+
 async def trade_callback(t):
+    t._raw['company'] = code_to_company[t.symbol]['company']
+    t._raw['sector'] = code_to_company[t.symbol]['sector']
+
     producer.send('financial-data', t._raw)
 
 stream = Stream(os.getenv('ALPACA_API_KEY'),
@@ -35,10 +41,18 @@ def subscibe_companies():
     print(f'\nSUBSCRIBED FINANCIAL COMPANIES')
     print(f'------------------------------')
 
-    for data in companies:
-        code = data.get("symbol") 
+    for company in companies:
+        code = company["symbol"]
+        name = company["company"]
+        sector = company["sector"]
+
+        code_to_company[code]  = {
+            "company" : name,
+            "sector" : sector
+        }
+
         stream.subscribe_trades(trade_callback, code)
-        print(json.dumps(data, indent=4))
+        print(json.dumps(company, indent=4))
 
 
 if __name__ == "__main__":

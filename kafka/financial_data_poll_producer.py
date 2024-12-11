@@ -32,7 +32,6 @@ producer = KafkaProducer(
 
 def load_companies():
     """Load company symbols from the input JSON file."""
-    codes = []
     with open(INPUT_FILE) as file:
         companies = json.load(file)
 
@@ -40,10 +39,9 @@ def load_companies():
     print(f'------------------------------')
 
     for data in companies:
-        codes.append(data.get("symbol"))
         print(json.dumps(data, indent=4))
 
-    return codes
+    return companies
 
 def fetch_stock_data(code):
     """Fetch stock data using yfinance."""
@@ -68,24 +66,32 @@ def fetch_stock_data(code):
         print(f"Error fetching data for {code}: {e}")
         return None
 
-async def stream_data(codes):
+async def stream_data(companies):
     """Stream stock data at the specified poll rate."""
     poll_idx = 0
 
     while True:
-        poll_idx += 1
 
-        for code in codes:
+        for company in companies:
+
+            code = company["symbol"]
+            name = company["company"]
+            sector = company["sector"]
+
             data = fetch_stock_data(code)
 
             if data:
+                data["company"] = name
+                data["sector"] = sector
+
                 print(data)
                 producer.send(TOPIC_OUT, data)
                 producer.flush()
 
+        poll_idx += 1
         print(f"{poll_idx} POLL DONE!\n")
         await asyncio.sleep(POLL_RATE)
 
 if __name__ == "__main__":
-    codes = load_companies()
-    asyncio.run(stream_data(codes))
+    companies = load_companies()
+    asyncio.run(stream_data(companies))
