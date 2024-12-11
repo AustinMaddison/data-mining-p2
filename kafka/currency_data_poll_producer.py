@@ -26,6 +26,7 @@ admin = KafkaAdminClient(
 producer = KafkaProducer(bootstrap_servers='localhost:29092', value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
 def fetch_currency_data(codes):
+    """Fetch currency exchange data using freecurrency."""
     currencies = "currencies=" + "%2C".join(codes)
     # base_currency = "base_currency=USD" # get curencies relative to USD
     url = "https://api.freecurrencyapi.com/v1/latest?apikey="+ os.getenv('FREE_CURR_KEY') + "&" + currencies
@@ -51,6 +52,7 @@ def load_currencies():
     return codes
 
 async def stream_data(codes):
+    """Stream stock data at the specified poll rate."""
     poll_idx = 0
 
     while True:
