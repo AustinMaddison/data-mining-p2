@@ -26,7 +26,7 @@ async def trade_callback(t):
     t._raw['company'] = code_to_company[t.symbol]['company']
     t._raw['sector'] = code_to_company[t.symbol]['sector']
 
-    producer.send('financial-data', t._raw)
+    producer.send(TOPIC_OUT, t._raw)
 
 stream = Stream(os.getenv('ALPACA_API_KEY'),
                 os.getenv('ALPACA_SECRET_KEY'),
